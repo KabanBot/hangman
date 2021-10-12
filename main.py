@@ -4,7 +4,10 @@ import random
 
 def get_word():
    #words
-   return random.choice(palabras.words)
+   word=random.choice(palabras.words)
+   while '-' in word or ' ' in word or '_' in word or '.'in word:
+       word=random.choice(palabras.words)
+   return word.upper()
    
 print(get_word())
 # palabra=get_word(3)
