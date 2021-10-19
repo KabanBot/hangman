@@ -12,3 +12,5 @@ A game made in python and collaborate with my partners
 **Paso 3**: Modificar funcion que obtiene la palabra para que sea aleatoria
 
 **Paso 4**: Filtrar palabras
+
+**Hice un cambio**
