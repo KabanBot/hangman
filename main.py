@@ -57,11 +57,22 @@ def play():
 
     if lives == 0:
         print("You lose, the word was:", word)
+        opc=input("Did you want to play again? Yes|No  ").lower()
+        if (opc == "yes"):
+                print(play())
+        elif  (opc == "no"):
+            exit()
+        else:
+             print('Invalid Character')
     else:
-        print("You won, the word is", word,"!!! 😁")
-
-
-
+        print("You won, the word is", word)
+        opc=input("Did you want to play again? Yes|No  ").lower()
+        if (opc == "yes"):
+            print (play())
+        elif  (opc == "no"):
+            exit()
+        else:
+            print('Invalid Character')
 print(play())
 
 
