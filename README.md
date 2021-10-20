@@ -21,3 +21,21 @@ A game made in python and collaborate with my partners
 
 
 **Hice un cambio**
+
+**Pasos para hacer colaboracion en github**
+
+1: Entrar al Repositorio donde vamos hacer el fork(Hacer Fork)
+
+2: Clonar el repositorio al que le hice fork(Hacer copia local)
+
+3:Realizar cambios que quiero proponer
+
+4:Hacer la conexion con el repositorio que le hice fork (upstream)
+
+5:Hacer un pull del repositorio original para verificar si hay cambios y actualizar
+
+6:Subir cambios que quiero proponer al repositorio remoto (Propio)
+
+7:Realizar un pull request en la plataforma de github
+
+8:Esperar retroalimentacion del repositorio o verificar si ya hizo un merge de nuestros cambios
