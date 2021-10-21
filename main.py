@@ -2,12 +2,27 @@ from words import words
 import random
 import string
 
+
+ 
+
+
 def get_valid_word():
    #words
    word=random.choice(words)
    while '-' in word or ' ' in word or '_' in word or '.'in word:
        word=random.choice(words)
    return word.upper()
+
+
+def instrucciones():
+    print("""
+INSTRUCCIONES
+El objetivo del juego es adivinar una palabra.
+1. Debes ir ingresando las letras que crees que forme la palabra.
+2. Si aciertas se escriben todas las palabras que contenga la palabra.
+3. solamente tienes 6 vidas para terminar el juego.
+¡¡SUERTE CON EL JUEGO!!
+""")
 
 
 def play():
@@ -61,7 +76,31 @@ def play():
         print("You won, the word is", word,"!!! 😁")
 
 
+def menu_principal():
+    menu = """
+1. Jugar
+2. Instrucciones
+3. Salir
+Selecciones = """
 
-print(play())
+    eleccion = int(input(menu))
+    if eleccion < 0 or eleccion > 3:
+        print("Solamente puedes elejir los numeros que se indican en el menu")
+    if eleccion == 1:
+        play()
+    if eleccion == 2:
+        instrucciones()   
+    if eleccion == 3:
+        exit()
+
+
+def main():
+    while True:
+        menu_principal()
+
+
+print(main())
+
+
 
 
