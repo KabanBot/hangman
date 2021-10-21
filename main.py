@@ -4,6 +4,7 @@ import string
 from colorama import init, Fore
 init()
 
+dificultad = 0
 def get_valid_word():
    #words
    word=random.choice(words)
@@ -11,6 +12,14 @@ def get_valid_word():
        word=random.choice(words)
    return word.upper()
 
+opcion = input ("Que dificultad quieres? Facil 6 vidas - Normal 3 vidad - Dificil 1 vida ")
+
+if opcion == 'Facil':
+    dificultad = 6
+elif opcion == 'Normal':
+    dificultad = 3
+elif opcion == 'Dificil':
+    dificultad = 1    
 
 def play():
     word = get_valid_word()
@@ -18,11 +27,22 @@ def play():
     alphabet = set(string.ascii_uppercase)
     used_letter = set()
 
-    lives = 6
+    lives = dificultad
 
-    print(Fore.GREEN + "\n ~ J U E G O ~ D E L ~ A H O R C A D O ~")
+    
+    print("     _")                                             
+    print("    | |")                                            
+    print("    | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __")  
+    print("    | '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_  \ ")
+    print("    | | | | (_| | | | | (_| | | | | | | (_| | | | |")
+    print("    |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|")
+    print("                        __/ | ")                     
+    print("                       |___/")
+    print("")
+    
     print(Fore.BLUE + "\n[DEVELOPER] The word is:",word)
     print(Fore.WHITE + "[USER] The word is: ","_ " * len(word_letters),'\n')
+    
 
 
     while len(word_letters) > 0 and lives > 0:
@@ -59,12 +79,26 @@ def play():
             print(Fore.RED +"\nInvalid character.Please try again")
 
     if lives == 0:
+
+
+
         print(Fore.RED + "\nYou lose, the word was:", word)
+        opc=input("Did you want to play again? Yes|No  ").lower()
+        if (opc == "yes"):
+                print(play())
+        elif  (opc == "no"):
+            exit()
+        else:
+             print(Fore.RED +'Invalid Character')
     else:
         print(Fore.CYAN + "\nYou won, the word is", word,"!!! 😁")
-
-
-
+        opc=input("Did you want to play again? Yes|No  ").lower()
+        if (opc == "yes"):
+            print (play())
+        elif  (opc == "no"):
+            exit()
+        else:
+            print(Fore.RED +'Invalid Character')
 print(play())
 
 
