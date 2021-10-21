@@ -18,7 +18,17 @@ def play():
 
     lives = 6
 
-    print("[DEVELOPER] The word is:",word)
+    print("     _")                                             
+    print("    | |")                                            
+    print("    | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __")  
+    print("    | '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_  \ ")
+    print("    | | | | (_| | | | | (_| | | | | | | (_| | | | |")
+    print("    |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|")
+    print("                        __/ | ")                     
+    print("                       |___/")
+    print("")
+
+    print("[DEVELOPER] The word is:", word)
     print("[USER] The word is: ","_ " * len(word_letters),'\n')
 
 
