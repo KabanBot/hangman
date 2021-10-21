@@ -9,13 +9,13 @@ def get_valid_word():
        word=random.choice(words)
    return word.upper()
 
-opcion = input ("Que dificultad quieres? Facil 6 vidas - Normal 3 vidad - Dificil 1 vida ")
+opcion = input ("Que dificultad quieres? Facil 6 vidas - Normal 3 vidad - Dificil 1 vida ").lower()
 
-if opcion == 'Facil':
+if opcion == 'facil':
     dificultad = 6
-elif opcion == 'Normal':
+elif opcion == 'normal':
     dificultad = 3
-elif opcion == 'Dificil':
+elif opcion == 'dificil':
     dificultad = 1    
 
 def play():
