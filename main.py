@@ -1,7 +1,7 @@
 from words import words
 import random
 import string
-
+dificultad = 0
 def get_valid_word():
    #words
    word=random.choice(words)
@@ -9,6 +9,14 @@ def get_valid_word():
        word=random.choice(words)
    return word.upper()
 
+opcion = input ("Que dificultad quieres? Facil 6 vidas - Normal 3 vidad - Dificil 1 vida ")
+
+if opcion == 'Facil':
+    dificultad = 6
+elif opcion == 'Normal':
+    dificultad = 3
+elif opcion == 'Dificil':
+    dificultad = 1    
 
 def play():
     word = get_valid_word()
@@ -16,7 +24,7 @@ def play():
     alphabet = set(string.ascii_uppercase)
     used_letter = set()
 
-    lives = 6
+    lives = dificultad
 
     print("     _")                                             
     print("    | |")                                            
