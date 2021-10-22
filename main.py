@@ -30,15 +30,14 @@ def play():
     lives = dificultad
 
     
-    print("     _")                                             
-    print("    | |")                                            
-    print("    | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __")  
-    print("    | '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_  \ ")
-    print("    | | | | (_| | | | | (_| | | | | | | (_| | | | |")
-    print("    |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|")
-    print("                        __/ | ")                     
-    print("                       |___/")
-    print("")
+    print(Fore.CYAN+"     _")                                             
+    print(Fore.CYAN+"    | |")                                            
+    print(Fore.CYAN+"    | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __")  
+    print(Fore.CYAN+"    | '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_  \ ")
+    print(Fore.YELLOW+"    | | | | (_| | | | | (_| | | | | | | (_| | | | |")
+    print(Fore.GREEN+"    |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|")
+    print(Fore.GREEN+"                       __/ | ")                     
+    print(Fore.GREEN+"                      |___/")
     
     print(Fore.BLUE + "\n[DEVELOPER] The word is:",word)
     print(Fore.WHITE + "[USER] The word is: ","_ " * len(word_letters),'\n')
