@@ -12,13 +12,13 @@ def get_valid_word():
        word=random.choice(words)
    return word.upper()
 
-opcion = input ("Que dificultad quieres? Facil 6 vidas - Normal 3 vidad - Dificil 1 vida ")
+opcion = input ("Que dificultad quieres? Facil 6 vidas - Normal 3 vidad - Dificil 1 vida: ").lower()
 
-if opcion == 'Facil':
+if opcion == 'facil':
     dificultad = 6
-elif opcion == 'Normal':
+elif opcion == 'normal':
     dificultad = 3
-elif opcion == 'Dificil':
+elif opcion == 'dificil':
     dificultad = 1    
 
 def play():
@@ -43,10 +43,9 @@ def play():
     print(Fore.WHITE + "[USER] The word is: ","_ " * len(word_letters),'\n')
     
 
-
     while len(word_letters) > 0 and lives > 0:
         # getting user input
-        print(Fore.LIGHTMAGENTA_EX + "\nYou have",lives,"left and you have have used these letters:",
+        print(Fore.LIGHTMAGENTA_EX +"You have",lives,"left and you have have used these letters:",
         ' '.join(used_letter)
         )
 
@@ -59,7 +58,7 @@ def play():
 
         letter_list = [letter if letter in used_letter else '_' for letter in word]
 
-        print(Fore.CYAN + "Current word:",' '.join(letter_list),'\n')
+        print(Fore.CYAN+"Current word:",' '.join(letter_list),'\n')
 
 
         user_letter = input("Guess a letter: ").upper()
@@ -71,17 +70,14 @@ def play():
                 word_letters.remove(user_letter)
             else:
                 lives = lives - 1
-                print(Fore.RED + "\nYou lose a live, the letter is not in the word LOL")
+                print(Fore.RED +"You lose a live, the letter is not in the word LOL")
         elif user_letter in used_letter:
-            print(Fore.WHITE+"\nYou have already the letter, try again")
+            print(Fore.WHITE+"You have already the letter, try again")
         else:
-            print(Fore.RED +"\nInvalid character.Please try again")
+            print(Fore.RED +"Invalid character.Please try again")
 
     if lives == 0:
-
-
-
-        print(Fore.RED + "\nYou lose, the word was:", word)
+        print(Fore.RED +"You lose, the word was:", word)
         opc=input("Did you want to play again? Yes|No  ").lower()
         if (opc == "yes"):
                 print(play())
@@ -90,7 +86,7 @@ def play():
         else:
              print(Fore.RED +'Invalid Character')
     else:
-        print(Fore.CYAN + "\nYou won, the word is", word,"!!! 😁")
+        print(Fore.CYAN +"You won, the word is", word)
         opc=input("Did you want to play again? Yes|No  ").lower()
         if (opc == "yes"):
             print (play())
@@ -98,6 +94,5 @@ def play():
             exit()
         else:
             print(Fore.RED +'Invalid Character')
+
 print(play())
-
-
