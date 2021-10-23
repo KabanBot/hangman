@@ -1,6 +1,9 @@
 from words import words
 import random
 import string
+from colorama import init, Fore
+init()
+
 dificultad = 0
 def get_valid_word():
    #words
@@ -26,23 +29,23 @@ def play():
 
     lives = dificultad
 
-    print("     _")                                             
-    print("    | |")                                            
-    print("    | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __")  
-    print("    | '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_  \ ")
-    print("    | | | | (_| | | | | (_| | | | | | | (_| | | | |")
-    print("    |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|")
-    print("                        __/ | ")                     
-    print("                       |___/")
-    print("")
-
-    print("[DEVELOPER] The word is:", word)
-    print("[USER] The word is: ","_ " * len(word_letters),'\n')
-
+    
+    print(Fore.CYAN+"     _")                                             
+    print(Fore.CYAN+"    | |")                                            
+    print(Fore.CYAN+"    | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __")  
+    print(Fore.CYAN+"    | '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_  \ ")
+    print(Fore.YELLOW+"    | | | | (_| | | | | (_| | | | | | | (_| | | | |")
+    print(Fore.GREEN+"    |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|")
+    print(Fore.GREEN+"                       __/ | ")                     
+    print(Fore.GREEN+"                      |___/")
+    
+    print(Fore.BLUE + "\n[DEVELOPER] The word is:",word)
+    print(Fore.WHITE + "[USER] The word is: ","_ " * len(word_letters),'\n')
+    
 
     while len(word_letters) > 0 and lives > 0:
         # getting user input
-        print("You have",lives,"left and you have have used these letters:",
+        print(Fore.LIGHTMAGENTA_EX +"You have",lives,"left and you have have used these letters:",
         ' '.join(used_letter)
         )
 
@@ -55,7 +58,7 @@ def play():
 
         letter_list = [letter if letter in used_letter else '_' for letter in word]
 
-        print("Current word:",' '.join(letter_list),'\n')
+        print(Fore.CYAN+"Current word:",' '.join(letter_list),'\n')
 
 
         user_letter = input("Guess a letter: ").upper()
@@ -67,29 +70,29 @@ def play():
                 word_letters.remove(user_letter)
             else:
                 lives = lives - 1
-                print("You lose a live, the letter is not in the word LOL")
+                print(Fore.RED +"You lose a live, the letter is not in the word LOL")
         elif user_letter in used_letter:
-            print("You have already the letter, try again")
+            print(Fore.WHITE+"You have already the letter, try again")
         else:
-            print("Invalid character.Please try again")
+            print(Fore.RED +"Invalid character.Please try again")
 
     if lives == 0:
-        print("You lose, the word was:", word)
+        print(Fore.RED +"You lose, the word was:", word)
         opc=input("Did you want to play again? Yes|No  ").lower()
         if (opc == "yes"):
                 print(play())
         elif  (opc == "no"):
             exit()
         else:
-             print('Invalid Character')
+             print(Fore.RED +'Invalid Character')
     else:
-        print("You won, the word is", word)
+        print(Fore.CYAN +"You won, the word is", word)
         opc=input("Did you want to play again? Yes|No  ").lower()
         if (opc == "yes"):
             print (play())
         elif  (opc == "no"):
             exit()
         else:
-            print('Invalid Character')
+            print(Fore.RED +'Invalid Character')
 
 print(play())
