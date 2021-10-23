@@ -1,10 +1,16 @@
 from words import words
 import random
 import string
+import os #Importar libreria para limpiar consola
 from colorama import init, Fore
 init()
 
-dificultad = 0
+def clear(): #Funcion para limpiar consola
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
+
 def get_valid_word():
    #words
    word=random.choice(words)
@@ -13,7 +19,7 @@ def get_valid_word():
    return word.upper()
 
 opcion = input ("Que dificultad quieres? Facil 6 vidas - Normal 3 vidad - Dificil 1 vida: ").lower()
-
+dificultad = 0
 if opcion == 'facil':
     dificultad = 6
 elif opcion == 'normal':
@@ -39,8 +45,8 @@ def play():
     print(Fore.GREEN+"                       __/ | ")                     
     print(Fore.GREEN+"                      |___/")
     
-    print(Fore.BLUE + "\n[DEVELOPER] The word is:",word)
-    print(Fore.WHITE + "[USER] The word is: ","_ " * len(word_letters),'\n')
+    #print(Fore.BLUE + "\n[DEVELOPER] The word is:",word) 
+    #print(Fore.WHITE + "[USER] The word is: ","_ " * len(word_letters),'\n')
     
 
     while len(word_letters) > 0 and lives > 0:
@@ -62,7 +68,7 @@ def play():
 
 
         user_letter = input("Guess a letter: ").upper()
-
+        clear()
         if user_letter in alphabet - used_letter: # Si la letra que introduce es valida
 
             used_letter.add(user_letter) # Agregala a las letras usadas
@@ -94,5 +100,6 @@ def play():
             exit()
         else:
             print(Fore.RED +'Invalid Character')
+        clear()
 
 print(play())
