@@ -24,6 +24,10 @@ A game made in python and collaborate with my partners
 
 pip install colorama
 
+**Para realizar solo la upgrade**
+pip install --upgrade pip
+
+
 **Pasos para hacer colaboracion en github**
 
 1: Entrar al Repositorio donde vamos hacer el fork(Hacer Fork)
