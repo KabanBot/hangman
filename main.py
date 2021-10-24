@@ -18,6 +18,11 @@ def play():
 
     lives = 6
 
+    print("HISTORIA!! "+ "\n"+" Los orígenes de El Ahorcado son oscuros, pero al parecer surgió en la época"+ 
+    " victoriana, dice Tony Augarde, autor de La Guía de Oxford de Juegos de palabras "+ 
+    " (Oxford University Press). El juego es mencionado en 1894 en Juegos tradicionales de "+ 
+    "Alice Bertha Gomme bajo el nombre Aves, Bestias y Peces. Las reglas eran simples: un jugador "+ 
+     " anota la primera y última letra de una palabra de un animal, y el otro jugador adivina las letras en el medio")
     print("[DEVELOPER] The word is:",word)
     print("[USER] The word is: ","_ " * len(word_letters),'\n')
 
