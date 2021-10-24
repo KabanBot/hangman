@@ -33,7 +33,6 @@ def play():
     alphabet = set(string.ascii_uppercase)
     used_letter = set()
 
-<<<<<<< HEAD
     lives = 6
 
     print("HISTORIA!! "+ "\n"+" Los orígenes de El Ahorcado son oscuros, pero al parecer surgió en la época"+ 
@@ -44,7 +43,6 @@ def play():
     print("[DEVELOPER] The word is:",word)
     print("[USER] The word is: ","_ " * len(word_letters),'\n')
 
-=======
     lives = dificultad
 
     
@@ -60,7 +58,6 @@ def play():
     #print(Fore.BLUE + "\n[DEVELOPER] The word is:",word) 
     #print(Fore.WHITE + "[USER] The word is: ","_ " * len(word_letters),'\n')
     
->>>>>>> d9830b504ea384ab14cd1689221396060aa0c70d
 
     while len(word_letters) > 0 and lives > 0:
         # getting user input
