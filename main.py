@@ -1,21 +1,11 @@
 from words import words
 import random
 import string
+from colorama import init, Fore
+init()
 
 
- 
-
-
-def get_valid_word():
-   #words
-   word=random.choice(words)
-   while '-' in word or ' ' in word or '_' in word or '.'in word:
-       word=random.choice(words)
-   return word.upper()
-
-
-def instrucciones():
-    print("""
+print("""
 INSTRUCCIONES
 El objetivo del juego es adivinar una palabra.
 1. Debes ir ingresando las letras que crees que forme la palabra.
@@ -24,6 +14,24 @@ El objetivo del juego es adivinar una palabra.
 ¡¡SUERTE CON EL JUEGO!!
 """)
 
+dificultad = 0
+def get_valid_word():
+   
+   #words
+   word=random.choice(words)
+   while '-' in word or ' ' in word or '_' in word or '.'in word:
+       word=random.choice(words)
+   return word.upper()
+
+opcion = input ("Que dificultad quieres? Facil 6 vidas - Normal 3 vidad - Dificil 1 vida: ").lower()
+
+if opcion == 'facil':
+    dificultad = 6
+elif opcion == 'normal':
+    dificultad = 3
+elif opcion == 'dificil':
+    dificultad = 1    
+
 
 def play():
     word = get_valid_word()
@@ -31,15 +39,25 @@ def play():
     alphabet = set(string.ascii_uppercase)
     used_letter = set()
 
-    lives = 6
+    lives = dificultad
 
-    print("[DEVELOPER] The word is:",word)
-    print("[USER] The word is: ","_ " * len(word_letters),'\n')
-
+    
+    print(Fore.CYAN+"     _")                                             
+    print(Fore.CYAN+"    | |")                                            
+    print(Fore.CYAN+"    | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __")  
+    print(Fore.CYAN+"    | '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_  \ ")
+    print(Fore.YELLOW+"    | | | | (_| | | | | (_| | | | | | | (_| | | | |")
+    print(Fore.GREEN+"    |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|")
+    print(Fore.GREEN+"                       __/ | ")                     
+    print(Fore.GREEN+"                      |___/")
+    
+    print(Fore.BLUE + "\n[DEVELOPER] The word is:",word)
+    print(Fore.WHITE + "[USER] The word is: ","_ " * len(word_letters),'\n')
+    
 
     while len(word_letters) > 0 and lives > 0:
         # getting user input
-        print("You have",lives,"left and you have have used these letters:",
+        print(Fore.LIGHTMAGENTA_EX +"You have",lives,"left and you have have used these letters:",
         ' '.join(used_letter)
         )
 
@@ -52,7 +70,7 @@ def play():
 
         letter_list = [letter if letter in used_letter else '_' for letter in word]
 
-        print("Current word:",' '.join(letter_list),'\n')
+        print(Fore.CYAN+"Current word:",' '.join(letter_list),'\n')
 
 
         user_letter = input("Guess a letter: ").upper()
@@ -64,43 +82,31 @@ def play():
                 word_letters.remove(user_letter)
             else:
                 lives = lives - 1
-                print("You lose a live, the letter is not in the word LOL")
+                print(Fore.RED +"You lose a live, the letter is not in the word LOL")
         elif user_letter in used_letter:
-            print("You have already the letter, try again")
+            print(Fore.WHITE+"You have already the letter, try again")
         else:
-            print("Invalid character.Please try again")
+            print(Fore.RED +"Invalid character.Please try again")
 
     if lives == 0:
-        print("You lose, the word was:", word)
+        print(Fore.RED +"You lose, the word was:", word)
+        opc=input("Did you want to play again? Yes|No  ").lower()
+        if (opc == "yes"):
+                print(play())
+        elif  (opc == "no"):
+            exit()
+        else:
+             print(Fore.RED +'Invalid Character')
     else:
-        print("You won, the word is", word,"!!! 😁")
+
+        print(Fore.CYAN +"You won, the word is", word)
+        opc=input("Did you want to play again? Yes|No  ").lower()
+        if (opc == "yes"):
+            print (play())
+        elif  (opc == "no"):
+            exit()
+        else:
+            print(Fore.RED +'Invalid Character')
 
 
-def menu_principal():
-    menu = """
-1. Jugar
-2. Instrucciones
-3. Salir
-Selecciones = """
-
-    eleccion = int(input(menu))
-    if eleccion < 0 or eleccion > 3:
-        print("Solamente puedes elejir los numeros que se indican en el menu")
-    if eleccion == 1:
-        play()
-    if eleccion == 2:
-        instrucciones()   
-    if eleccion == 3:
-        exit()
-
-
-def main():
-    while True:
-        menu_principal()
-
-
-print(main())
-
-
-
-
+print(play())
