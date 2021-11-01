@@ -5,6 +5,17 @@ import os #Importar libreria para limpiar consola
 from colorama import init, Fore
 init()
 
+
+print("""
+INSTRUCCIONES
+El objetivo del juego es adivinar una palabra.
+1. Debes ir ingresando las letras que crees que forme la palabra.
+2. Si aciertas se escriben todas las palabras que contenga la palabra.
+3. solamente tienes 6 vidas para terminar el juego.
+¡¡SUERTE CON EL JUEGO!!
+""")
+
+dificultad = 0
 def clear(): #Funcion para limpiar consola
     if os.name == "nt":
         os.system("cls")
@@ -12,6 +23,7 @@ def clear(): #Funcion para limpiar consola
         os.system("clear")
 
 def get_valid_word():
+   
    #words
    word=random.choice(words)
    while '-' in word or ' ' in word or '_' in word or '.'in word:
@@ -26,6 +38,7 @@ elif opcion == 'normal':
     dificultad = 3
 elif opcion == 'dificil':
     dificultad = 1    
+
 
 def play():
     word = get_valid_word()
@@ -98,6 +111,7 @@ def play():
         else:
              print(Fore.RED +'Invalid Character')
     else:
+
         print(Fore.CYAN +"You won, the word is", word)
         opc=input("Did you want to play again? Yes|No  ").lower()
         if (opc == "yes"):
@@ -107,5 +121,6 @@ def play():
         else:
             print(Fore.RED +'Invalid Character')
         clear()
+
 
 print(play())
