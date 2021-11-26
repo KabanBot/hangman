@@ -63,6 +63,8 @@ def play():
     print(Fore.GREEN+"    |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|")
     print(Fore.GREEN+"                       __/ | ")                     
     print(Fore.GREEN+"                      |___/")
+
+    
     
     #print(Fore.BLUE + "\n[DEVELOPER] The word is:",word) 
     #print(Fore.WHITE + "[USER] The word is: ","_ " * len(word_letters),'\n')
@@ -103,7 +105,25 @@ def play():
 
     if lives == 0:
         print(Fore.RED +"You lose, the word was:", word)
-        opc=input("Did you want to play again? Yes|No  ").lower()
+
+        
+        print(Fore.GREEN+"        ____0000000000______000000__")
+        print(Fore.GREEN+" __000________000__000________000___")
+        print(Fore.GREEN+" _000___________0000___________000__")
+        print(Fore.GREEN+" 000_____________00_____________000_")
+        print(Fore.GREEN+" 000____________________________000_")
+        print(Fore.GREEN+" 000____________________________000_")
+        print(Fore.GREEN+" _000___________________________000_")
+        print(Fore.GREEN+" __000________LOOSER__________000___")
+        print(Fore.GREEN+" ___000______________________000____")
+        print(Fore.GREEN+" _____000__________________000______")
+        print(Fore.GREEN+" _______000______________000________")
+        print(Fore.GREEN+" _________000__________000__________")
+        print(Fore.GREEN+" __________ 000______000____________")
+        print(Fore.GREEN+" ______________000000_______________")
+        print(Fore.GREEN+" _______________00__________________")
+    
+        opc=input("Do you want to play again? Yes|No  ").lower()
         if (opc == "yes"):
                 print(play())
         elif  (opc == "no"):
@@ -113,7 +133,7 @@ def play():
     else:
 
         print(Fore.CYAN +"You won, the word is", word)
-        opc=input("Did you want to play again? Yes|No  ").lower()
+        opc=input("Do you want to play again? Yes|No  ").lower()
         if (opc == "yes"):
             print (play())
         elif  (opc == "no"):
